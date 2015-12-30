@@ -39,6 +39,6 @@ io.on('connection', function(socket) {
 	var username = faker.internet.userName();
 	var color = faker.internet.color();
 	socket.on('chat message', function(msg){
-		io.emit('chat message', '<li><span style="color: ' + color + ';">' + username + '</span>: ' + msg + '</li>');
+		io.emit('chat message', {msg: msg, username: username, color: color});
 	});
 });
